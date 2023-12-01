@@ -12,7 +12,22 @@ public class Main {
     }
 
     public static void part2(){
+        int sum = 0;
 
+        try{
+            File advOfCode = new File("src/com/learning/rev.txt");
+            Scanner reading = new Scanner(advOfCode);
+            while (reading.hasNextLine()){
+                sum += numberFromString(reading.nextLine());
+            }
+        }catch (FileNotFoundException e){
+            System.out.println("error aya gandu");
+            e.printStackTrace();
+        }
+
+        System.out.println(sum);
+        //same shit as part1 bhai just the string to number function
+        // will be a bit more exciting
     }
 
 
