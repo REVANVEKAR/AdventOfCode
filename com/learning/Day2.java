@@ -7,9 +7,9 @@ import java.util.*;
 public class Day2 {
 
     public static void main(String[] args) {
-//        game2();
-        int dummy = gamesPart2("Game 1: 3 blue, 4 red; 1 red, 2 green, 6 blue; 2 green");
-        System.out.println(dummy);
+        game2();
+//        int dummy = gamesPart2("Game 5: 6 red, 1 blue, 3 green; 2 blue, 1 red, 2 green");
+//        System.out.println(dummy);
     }
 
 
@@ -99,29 +99,10 @@ public class Day2 {
                 int num = Integer.parseInt(c1[0]);
                 String color = c1[1];
 
-                switch (color){
-                    case "red" :
-                        if (map.containsKey("red")) {
-                            map.put("red" , Math.max(num , map.get("red")));
-                        }else{
-                            map.put("red" , num);
-                        }
-                        break;
-                    case "green" :
-                        if (map.containsKey("green")){
-                            map.put("green" , Math.max(num , map.get("green")));
-                        }else{
-                             map.put("red" , num);
-                        }
-                        break;
-                    case "blue":
-                        if (map.containsKey("blue")){
-                            map.put("blue" , Math.max(num , map.get("blue")));
-                        }else{
-                            map.put("blue" , num);
-                        }
-
-                        break;
+                if (map.containsKey(color)){
+                    map.put(color,Math.max(num , map.get(color)));
+                }else {
+                    map.put(color,num);
                 }
 
 
@@ -129,7 +110,7 @@ public class Day2 {
 
         }
         for (int i : map.values()){
-            System.out.println(i);
+//            System.out.println(i);
             power *= i;
         }
 
