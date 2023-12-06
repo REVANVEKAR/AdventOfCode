@@ -29,11 +29,11 @@ public class Day4 {
             if (count == 0){
                 return 0;
             }
-            return 1 << (count -1);
+            return 1 << (count -1); // learnt smthg new here
         }
 
         int hits(){
-            Set<Integer> hits = new HashSet<>(left);
+            Set<Integer> hits = new HashSet<>(left); // kinda here too
             hits.retainAll(right);
             return hits.size();
         }

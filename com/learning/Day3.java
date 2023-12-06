@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-public class DAY3sol {
+public class Day3 {
 
     public static void main(String[] args) {
         List<String> matrix = readInput().lines().toList();
