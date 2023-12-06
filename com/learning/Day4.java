@@ -48,6 +48,22 @@ public class Day4 {
         System.out.println(sum);
     }
 
+    public static void part2(List<String> input) {
+        List<Card> cards = input.stream().filter(s -> !"".equals(s)).map(s -> new Card(s)).toList();
+
+        for (int i = 0; i< cards.size(); i++){
+            Card c = cards.get(i);
+            int m = cards.get(i).copies;
+            int f = c.hits();
+            for (int j = i+1; j <Math.min(i + f + 1 , cards.size()); j++){
+                cards.get(j).copies += m;
+            }
+        }
+
+        System.out.println(cards.stream().map(c -> c.copies).reduce((a,b) -> a + b).orElse(0));
+
+    }
+
     public static void main(String[] args) {
 
         List<String> input = new ArrayList<>();
@@ -63,7 +79,7 @@ public class Day4 {
             System.out.println("error he ");
         }
 
-        part1(input);
+        part2(input);
 
 
     }
